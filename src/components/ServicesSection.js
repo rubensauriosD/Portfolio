@@ -1,54 +1,29 @@
 import React from 'react';
-import { MdDesktopMac, MdCode, MdPhonelinkSetup } from 'react-icons/md';
 import styled from 'styled-components';
+import { MdCode, MdSettings, MdDesktopMac } from 'react-icons/md';
 import SectionTitle from './SectionTitle';
 import ServicesSectionItem from './ServicesSectionItem';
 
-const ServicesItemsStyles = styled.div`
-  padding: 10rem 0;
-  .services__allItems {
-    display: flex;
-    gap: 10rem;
-    justify-content: space-between;
-    margin-top: 5rem;
-  }
-  @media only screen and (max-width: 768px) {
-    .services__allItems {
-      flex-direction: column;
-      max-width: 350px;
-      margin: 0 auto;
-      margin-top: 5rem;
-      gap: 5rem;
-    }
-  }
+const ServicesStyles = styled.section`
+  padding: 8rem 0;
+  .services { margin-top: 5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem; }
+  .servicesItem { padding: 3rem 2rem; background: var(--deep-dark); border-radius: 12px; }
+  @media(max-width: 900px) { .services { grid-template-columns: repeat(2, 1fr); } }
+  @media(max-width: 600px) { .services { grid-template-columns: 1fr; } }
 `;
-
+const services = [
+  ['Bug fixes', 'Investigate errors and fix backend or web application issues.', <MdCode />],
+  ['API integrations', 'Connect REST APIs and handle validation, errors and data mapping.', <MdCode />],
+  ['Automation', 'Build scripts and tools for repetitive technical workflows.', <MdSettings />],
+  ['Testing', 'Add unit and integration coverage, fixtures and mocks.', <MdSettings />],
+  ['Dashboards & reports', 'Turn API or SQL data into useful views and reports.', <MdDesktopMac />],
+  ['Backend maintenance', 'Improve existing services with a focused, agreed scope.', <MdCode />],
+];
 export default function ServicesSection() {
   return (
-    <ServicesItemsStyles>
-      <div className="container">
-        <SectionTitle subheading="What i will do for you" heading="Services" />
-        <br />
-        <br />
-        <br />
-        <div className="services__allItems">
-          <ServicesSectionItem
-            icon={<MdDesktopMac />}
-            title="Web Design"
-            desc=""
-          />
-          <ServicesSectionItem
-            icon={<MdCode />}
-            title="Web Dev"
-            desc="I develop websites, creating a high performance website with lightning fast speed."
-          />
-          <ServicesSectionItem
-            icon={<MdPhonelinkSetup />}
-            title="App Dev"
-            desc=""
-          />
-        </div>
-      </div>
-    </ServicesItemsStyles>
+    <ServicesStyles><div className="container">
+      <SectionTitle subheading="Small projects with a clear deliverable" heading="How I can help" />
+      <div className="services">{services.map(([title, desc, icon]) => <ServicesSectionItem key={title} title={title} desc={desc} icon={icon} />)}</div>
+    </div></ServicesStyles>
   );
 }

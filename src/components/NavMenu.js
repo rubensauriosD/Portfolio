@@ -30,31 +30,37 @@ const NavStyles = styled.nav`
       padding: 1rem 2rem;
       font-size: 2rem;
       color: var(--gray-1);
-      outline: none;
     }
     .active {
       color: var(--white);
     }
   }
   .mobile-menu-icon {
+    background: var(--dark-bg);
+    color: var(--gray-1);
+    border: 0;
     position: absolute;
     right: 1rem;
     top: 1rem;
     width: 4rem;
     cursor: pointer;
     display: none;
-    outline: none;
     * {
       pointer-events: none;
     }
   }
   .navItems .closeNavIcon {
+    background: transparent;
+    color: var(--gray-1);
+    border: 0;
     display: none;
   }
+  .closeNavIcon button { background: transparent; border: 0; color: inherit; cursor: pointer; width: 3rem; }
   @media only screen and (max-width: 768px) {
     padding: 0;
     .hide-item {
       transform: translateY(calc(-100% - var(--top)));
+      visibility: hidden;
     }
     .mobile-menu-icon {
       display: block;
@@ -75,7 +81,7 @@ const NavStyles = styled.nav`
         width: 3rem;
         margin: 0 0 0 auto;
         cursor: pointer;
-        * {
+        svg {
           pointer-events: none;
         }
       }
@@ -91,34 +97,31 @@ export default function NavMenu() {
   const [showNav, setShowNav] = useState(false);
   return (
     <NavStyles>
-      <div
+      <button
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded={showNav}
+        aria-controls="main-navigation"
         className="mobile-menu-icon"
         onClick={() => setShowNav(!showNav)}
-        role="button"
-        onKeyDown={() => setShowNav(!showNav)}
-        tabIndex={0}
       >
         <MdMenu />
-      </div>
+      </button>
 
-      <ul className={!showNav ? 'navItems hide-item' : 'navItems'}>
-        <div
+      <ul id="main-navigation" className={!showNav ? 'navItems hide-item' : 'navItems'}>
+        <li className="closeNavIcon"><button
+          type="button"
+          aria-label="Close navigation"
           className="closeNavIcon"
           onClick={() => setShowNav(!showNav)}
-          role="button"
-          onKeyDown={() => setShowNav(!showNav)}
-          tabIndex={0}
         >
           <MdClose />
-        </div>
+        </button></li>
         <li>
           <NavLink
             to="/"
             exact
-            onClick={() => setShowNav(!showNav)}
-            role="button"
-            onKeyDown={() => setShowNav(!showNav)}
-            tabIndex={0}
+            onClick={() => setShowNav(false)}
           >
             Home
           </NavLink>
@@ -126,10 +129,7 @@ export default function NavMenu() {
         <li>
           <NavLink
             to="/about"
-            onClick={() => setShowNav(!showNav)}
-            role="button"
-            onKeyDown={() => setShowNav(!showNav)}
-            tabIndex={0}
+            onClick={() => setShowNav(false)}
           >
             About
           </NavLink>
@@ -137,10 +137,7 @@ export default function NavMenu() {
         <li>
           <NavLink
             to="/projects"
-            onClick={() => setShowNav(!showNav)}
-            role="button"
-            onKeyDown={() => setShowNav(!showNav)}
-            tabIndex={0}
+            onClick={() => setShowNav(false)}
           >
             Projects
           </NavLink>
@@ -148,10 +145,7 @@ export default function NavMenu() {
         <li>
           <NavLink
             to="/contact"
-            onClick={() => setShowNav(!showNav)}
-            role="button"
-            onKeyDown={() => setShowNav(!showNav)}
-            tabIndex={0}
+            onClick={() => setShowNav(false)}
           >
             Contact
           </NavLink>

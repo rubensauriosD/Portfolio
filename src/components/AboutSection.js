@@ -1,101 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from './Button';
-import PText from './PText';
 import SectionTitle from './SectionTitle';
+import Button from './Button';
 import AboutImg from '../assets/misIMG/IMG_20210611_164847_179.jpg';
 
-const AboutSectionStyles = styled.div`
-  padding: 10rem 0;
-  .aboutImg {
-    width: 85%;
-  }
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: left;
-  }
-  .aboutSection__left,
-  .aboutSection__right {
-    flex: 1;
-  }
-  .section-title {
-    text-align: left;
-  }
-  .para {
-    margin-top: 2rem;
-    margin-left: 0;
-  }
-  .aboutSection__buttons {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  @media only screen and (max-width: 950px) {
-    .aboutSection__left {
-      flex: 4;
-    }
-    .aboutSection__right {
-      flex: 3;
-    }
-  }
-  @media only screen and (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      text-align: center;
-    }
-    .aboutSection__left,
-    .aboutSection__right {
-      width: 100%;
-    }
-    .aboutSection__right {
-      margin-top: 3rem;
-    }
-    .section-title {
-      text-align: center;
-    }
-    .para {
-      margin: 0 auto;
-      margin-top: 2rem;
-    }
-    .aboutSection__buttons {
-      flex-direction: column;
-      gap: 0rem;
-      .button-wrapper,
-      a {
-        width: 100%;
-        text-align: center;
-      }
-    }
-  }
+const AboutStyles = styled.section`
+  padding: 8rem 0;
+  .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .section-title { text-align: left; }
+  .copy { margin-top: 2.5rem; font-size: 1.8rem; line-height: 1.7; }
+  img { max-height: 48rem; border-radius: 16px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+  @media(max-width: 768px) { .layout { grid-template-columns: 1fr; } img { max-height: 38rem; } }
 `;
 
 export default function AboutSection() {
   return (
-    <AboutSectionStyles>
-      <div className="container">
-        <div className="aboutSection__left">
-          <SectionTitle
-            subheading="Let me introduce myself"
-            heading="About Me"
-          />
-          <PText>
-            I am a Full-Stack Developer from Tucuman, Argentina. Oriented to
-            back-end, the area that I always liked the most, but I am interested
-            in the Front and I always like to keep learning new technologies.
-          </PText>
-          <div className="aboutSection__buttons">
-            <Button btnText="Works" btnLink="/projects" />
-            <Button btnText="Read More" btnLink="/about" outline />
-          </div>
-        </div>
-        <div className="aboutSection__right">
-          <img className="aboutImg" src={AboutImg} alt="Img" />
-        </div>
+    <AboutStyles><div className="container layout">
+      <div>
+        <SectionTitle subheading="Backend, integrations & automation" heading="About me" />
+        <p className="copy">I’m a Software Developer at Mercado Libre, working with Go and Java on payment systems since 2022. My experience includes API integrations, automated testing, troubleshooting and observability.</p>
+        <p className="copy">Outside work, I build practical applications with Python and JavaScript. I’m interested in small freelance projects with a clear scope and deliverable.</p>
+        <div className="actions"><Button btnText="My background" btnLink="/about" /><Button btnText="CV · English" btnLink="/cv/Ruben_Bazan_CV_EN.pdf" download outline /></div>
       </div>
-    </AboutSectionStyles>
+      <img src={AboutImg} alt="Ruben Bazan" loading="lazy" />
+    </div></AboutStyles>
   );
 }

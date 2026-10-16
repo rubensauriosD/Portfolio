@@ -1,57 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import ProjectImg from '../assets/images/projectImg.png';
 
-const ProjectItemStyles = styled.div`
-  .projectItem__img {
-    width: 100%;
-    height: 400px;
-    border-radius: 12px;
-    overflow: hidden;
-    display: inline-block;
-    border: 3px solid var(--gray-2);
-    img {
-      height: 100%;
-    }
-  }
-  .projectItem__info {
-    margin-top: 1rem;
-    background-color: var(--deep-dark);
-    padding: 1rem;
-    border-radius: 12px;
-  }
-  .projectItem__title {
-    font-size: 2.2rem;
-  }
-  .projectItem__desc {
-    font-size: 1.6rem;
-    font-family: 'RobotoMono Regular';
-    margin-top: 1rem;
-  }
-  @media only screen and (max-width: 768px) {
-    .projectItem__img {
-      height: 350px;
-    }
-  }
+const ProjectStyles = styled.article`
+  height: 100%; background: var(--deep-dark); border-radius: 14px; overflow: hidden;
+  img { display: block; height: 24rem; object-fit: cover; }
+  .content { padding: 2.5rem; }
+  .category { font-size: 1.3rem; text-transform: uppercase; letter-spacing: .08em; }
+  h3 { font-size: 2.5rem; margin: 1.2rem 0; }
+  p, li, summary, a { font-size: 1.6rem; line-height: 1.6; }
+  .stack { margin: 1.5rem 0; color: #e6c7b5; }
+  summary { cursor: pointer; margin: 1.5rem 0; }
+  ul { padding-left: 2rem; list-style: disc; }
+  a { display: inline-block; margin-top: 1.5rem; text-decoration: underline; }
 `;
-
-export default function ProjectItem({
-  img = ProjectImg,
-  title = 'Project Name',
-  desc = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-}) {
+export default function ProjectItem({ name, title, img, desc, category, stack, features = [], source, illustration }) {
   return (
-    <ProjectItemStyles>
-      <Link to="/projects" className="projectItem__img">
-        <img src={img} alt="project img" />
-      </Link>
-      <div className="projectItem__info">
-        <Link to="#">
-          <h3 className="projectItem__title">{title}</h3>
-        </Link>
-        <p className="projectItem__desc">{desc}</p>
+    <ProjectStyles>
+      <img src={img} alt={illustration ? `${name} — project illustration` : `${name || title} application screenshot`} loading="lazy" />
+      <div className="content">
+        <p className="category">{category}</p><h3>{name || title}</h3><p>{desc}</p>
+        {stack && <p className="stack">{stack}</p>}
+        {features.length > 0 && <details><summary>What it does</summary><ul>{features.map((feature) => <li key={feature}>{feature}</li>)}</ul></details>}
+        {source ? <a href={source} target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a> : <p>Local project · public demo not available yet.</p>}
       </div>
-    </ProjectItemStyles>
+    </ProjectStyles>
   );
 }
