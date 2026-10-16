@@ -2,216 +2,34 @@ import React from 'react';
 import styled from 'styled-components';
 import HeroImg from '../assets/misIMG/anigif_enhanced-buzz-24540-1374525281-13.gif';
 import Button from './Button';
-import SocialMediaArrow from '../assets/images/social-media-arrow.svg';
-import ScrollDownArrow from '../assets/images/scroll-down-arrow.svg';
-// import PText from './PText';
 
-const HeroStyles = styled.div`
-  .hero {
-    height: 100vh;
-    min-height: 1000px;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  .hero__heading {
-    font-size: 2rem;
-    margin-bottom: -4rem;
-    position: relative;
-    span {
-      display: inline-block;
-      width: 100%;
-    }
-    .hero__name {
-      font-family: 'Montserrat SemiBold';
-      font-size: 7rem;
-      color: var(--white);
-    }
-  }
-  .hero__img {
-    max-width: 900px;
-    width: 70%;
-    height: 600px;
-    margin: 0 auto;
-    border: 2px solid var(--gray-1);
-  }
-  .hero__info {
-    margin-top: -18rem;
-  }
-  .hero__social,
-  .hero__scrollDown {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    position: absolute;
-
-    bottom: 20px;
-    width: 50px;
-  }
-  .hero__social {
-    left: 50px;
-  }
-  .hero__scrollDown {
-    right: 50px;
-  }
-
-  .hero__social__indicator,
-  .hero__scrollDown {
-    width: 50px;
-    p {
-      font-size: 1.6rem;
-      transform: translateY(-70px) rotate(90deg);
-      letter-spacing: 0.7rem;
-      text-transform: uppercase;
-    }
-    img {
-      max-height: 45px;
-      width: 16px;
-      margin: 0 auto;
-      object-fit: contain;
-    }
-  }
-  .hero__scrollDown {
-    img {
-      max-height: 70px;
-    }
-  }
-
-  .hero__social__text {
-    ul {
-      li {
-        margin-bottom: 1rem;
-        a {
-          display: inline-block;
-          font-size: 1.6rem;
-          transform: rotate(-90deg);
-          letter-spacing: 5px;
-          margin-bottom: 2rem;
-        }
-      }
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
-    .hero {
-      min-height: 750px;
-    }
-    .hero__heading {
-      font-size: 1.4rem;
-      margin-bottom: -3rem;
-      .hero__name {
-        font-size: 4.5rem;
-      }
-    }
-    .hero__img {
-      height: 300px;
-    }
-    .hero__info {
-      margin-top: 3rem;
-    }
-    .hero__social {
-      left: 0px;
-      bottom: -15%;
-      width: 20px;
-      .hero__social__indicator {
-        width: 20px;
-        p {
-          font-size: 1.2rem;
-        }
-        img {
-          max-height: 22px;
-        }
-      }
-      .hero__social__text {
-        ul {
-          li {
-            a {
-              font-size: 1.2rem;
-              margin-bottom: 1rem;
-            }
-          }
-        }
-      }
-    }
-    .hero__scrollDown {
-      right: 0;
-      width: 20px;
-      gap: 1rem;
-      p {
-        font-size: 1.3rem;
-      }
-    }
-  }
+const HeroStyles = styled.section`
+  padding: 16rem 0 8rem;
+  text-align: center;
+  .eyebrow { font-size: 1.6rem; letter-spacing: .18em; text-transform: uppercase; }
+  h1 { font-size: clamp(4rem, 8vw, 8rem); margin: 1.5rem 0; font-family: 'Montserrat Bold'; }
+  .intro { max-width: 64rem; margin: auto; font-size: 2rem; line-height: 1.6; }
+  img { display: block; width: min(100%, 42rem); height: auto; margin: 3rem auto; border-radius: 16px; }
+  .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+  .socials { display: flex; justify-content: center; gap: 2.5rem; font-size: 1.6rem; margin-top: 3rem; }
+  @media(max-width: 600px) { padding-top: 13rem; .intro { font-size: 1.7rem; } }
 `;
 
 export default function HeroSection() {
   return (
     <HeroStyles>
-      <div className="hero">
-        <div className="container">
-          <h1 className="hero__heading">
-            <span>Hello, This is</span>
-            <span className="hero__name">Ruben Bazan</span>
-          </h1>
-          <div className="hero__img">
-            <img src={HeroImg} alt="" />
-          </div>
-          <div className="hero__info">
-            {/* <PText>
-              I am working as a freelance web designer and developer for 4
-              years. I love to design and make new web experiences for the
-              people.
-            </PText> */}
-            <br />
-            <br />
-            <br />
-            <br />
-            <Button btnText="see my works" btnLink="/projects" />
-          </div>
-          <div className="hero__social">
-            <div className="hero__social__indicator">
-              <p>Follow</p>
-              <img src={SocialMediaArrow} alt="icon" />
-            </div>
-            <div className="hero__social__text">
-              <ul>
-                <li>
-                  <a
-                    href="https://github.com/rubensauriosD"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    GH
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/ruben0000000000000000000000000/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    IG
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/in/ruben-bazan-598234201/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    LD
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="hero__scrollDown">
-            <p>Scroll</p>
-            <img src={ScrollDownArrow} alt="ScrollDown Arrow" />
-          </div>
+      <div className="container">
+        <p className="eyebrow">Software Developer · Argentina</p>
+        <h1>Hi, I’m Ruben Bazan.</h1>
+        <p className="intro">I build backend services, connect APIs and automate technical workflows. Go and Java at work; Python and JavaScript for personal projects.</p>
+        <img src={HeroImg} alt="Animated geometric artwork" />
+        <div className="actions">
+          <Button btnText="Explore projects" btnLink="/projects" />
+          <Button btnText="Let’s work together" btnLink="/contact" outline />
+        </div>
+        <div className="socials">
+          <a href="https://github.com/rubensauriosD" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/ruben-bazan-598234201/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         </div>
       </div>
     </HeroStyles>
