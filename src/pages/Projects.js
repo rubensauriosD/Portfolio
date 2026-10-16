@@ -1,99 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { MdSearch } from 'react-icons/md';
 import SectionTitle from '../components/SectionTitle';
-import ProjectsInfo from '../assets/data/projects';
 import ProjectItem from '../components/ProjectItem';
+import projects from '../assets/data/projects';
 
-const ProjectStyle = styled.div`
-  padding: 10rem 0;
-  .projects__allItems {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 5rem;
-    margin-top: 5rem;
-  }
-  .projects__searchBar {
-    position: relative;
-    width: 300px;
-    margin-top: 5rem;
-  }
-  .projects__searchBar input {
-    width: 100%;
-    font-size: 2rem;
-    padding: 0.8rem;
-    color: var(--black);
-    border-radius: 6px;
-    outline: none;
-    border: none;
-  }
-  .projects__searchBar .searchIcon {
-    position: absolute;
-    width: 2rem;
-
-    right: 1rem;
-  }
-  .projects__searchBar .searchIcon path {
-    color: var(--deep-dark);
-  }
-  @media only screen and (max-width: 768px) {
-    .projects__searchBar,
-    .projects__searchBar form,
-    .projects__searchBar input {
-      width: 100%;
-    }
-  }
+const ProjectsStyles = styled.main`
+  padding: 16rem 0 8rem;
+  .intro { max-width: 70rem; margin: 3rem auto; text-align: center; font-size: 1.8rem; line-height: 1.7; }
+  .search { max-width: 60rem; margin: 4rem auto; }
+  label { display: block; font-size: 1.6rem; margin-bottom: 1rem; }
+  input { width: 100%; padding: 1.5rem; font-size: 1.8rem; color: var(--white); background: var(--deep-dark); border: 1px solid var(--gray-1); border-radius: 8px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 31rem), 1fr)); gap: 3rem; }
+  .empty { font-size: 1.8rem; padding: 3rem 0; }
 `;
-
 export default function Projects() {
-  const [searchText, setSearchText] = useState('');
-  const [projectsData, setProjectsData] = useState(ProjectsInfo);
-  useEffect(() => {
-    if (searchText === '') return;
-    setProjectsData(() =>
-      ProjectsInfo.filter((item) =>
-        item.name.toLowerCase().match(searchText.toLowerCase())
-      )
-    );
-  }, [searchText]);
-  const handleChange = (e) => {
-    e.preventDefault();
-    setSearchText(e.target.value);
-    if (!e.target.value.length > 0) {
-      setProjectsData(ProjectsInfo);
-    }
-  };
+  const [query, setQuery] = useState('');
+  const visible = projects.filter((project) => `${project.name} ${project.stack} ${project.category}`.toLowerCase().includes(query.trim().toLowerCase()));
   return (
-    <>
-      <ProjectStyle>
-        <div className="container">
-          <SectionTitle
-            heading="Projects"
-            subheading="some of my recent works"
-          />
-          <div className="projects__searchBar">
-            <form>
-              <input
-                type="text"
-                value={searchText}
-                onChange={handleChange}
-                placeholder="Project Name"
-              />
-              <MdSearch className="searchIcon" />
-            </form>
-          </div>
-          <div className="projects__allItems">
-            {projectsData.map((item) => (
-              <ProjectItem
-                key={item.id}
-                title={item.name}
-                desc={item.desc}
-                img={item.img}
-              />
-            ))}
-          </div>
-        </div>
-      </ProjectStyle>
-    </>
+    <ProjectsStyles><div className="container">
+      <SectionTitle subheading="Personal applications & training projects" heading="Projects" />
+      <p className="intro">A selection of things I’ve built outside work. FitApp and LoL Personal Stats Tracker currently run locally; the training projects link to their public source code.</p>
+      <div className="search"><label htmlFor="project-search">Search by project or technology</label><input id="project-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Try Python, React or FitApp" /></div>
+      <div className="grid">{visible.map((project) => <ProjectItem key={project.id} {...project} />)}</div>
+      {visible.length === 0 && <p className="empty" role="status">No projects match this search.</p>}
+    </div></ProjectsStyles>
   );
 }
