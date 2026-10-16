@@ -61,7 +61,7 @@ export default function ProjectsSection() {
   return (
     <ProjectSectionStyle>
       <div className="container">
-        <SectionTitle subheading="Some of my recent works" heading="Projects" />
+        <SectionTitle subheading="Personal applications & training projects" heading="Projects" />
         <div className="projects__allItems">
           <Swiper
             spaceBetween={30}
@@ -82,15 +82,10 @@ export default function ProjectsSection() {
               },
             }}
           >
-            {projects.map((project, index) => {
-              if (index >= 5) return;
+            {projects.map((project) => {
               return (
                 <SwiperSlide key={project.id}>
-                  <ProjectItem
-                    title={project.name}
-                    img={project.img}
-                    desc={project.desc}
-                  />
+                  <ProjectItem {...project} />
                 </SwiperSlide>
               );
             })}

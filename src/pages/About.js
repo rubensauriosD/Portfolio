@@ -1,172 +1,48 @@
 import React from 'react';
 import styled from 'styled-components';
-import PText from '../components/PText';
+import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
-import AboutImg from '../assets/misIMG/yo.png';
-import AboutInfoItem from '../components/AboutInfoItem';
-import ContactBanner from '../components/ContactBanner';
 
-const AboutPageStyles = styled.div`
-  padding: 20rem 0 10rem 0;
-
-  .top-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-  }
-  .left {
-    flex: 3;
-  }
-  .right {
-    flex: 2;
-  }
-  .about__subheading {
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-    span {
-      background-color: var(--deep-dark);
-      padding: 0.5rem;
-      border-radius: 8px;
-    }
-  }
-  .about__heading {
-    font-size: 3.6rem;
-    margin-bottom: 3rem;
-  }
-  .about__info {
-    margin-bottom: 4rem;
-    .para {
-      max-width: 100%;
-    }
-  }
-  .right {
-    img {
-      border: 2px solid var(--gray-1);
-    }
-  }
-  .about__info__items {
-    margin-top: 15rem;
-  }
-  .about__info__item {
-    margin-bottom: 10rem;
-  }
-  .about__info__heading {
-    font-size: 3.6rem;
-    text-transform: uppercase;
-  }
-  @media only screen and (max-width: 768px) {
-    padding: 10rem 0;
-    .top-section {
-      flex-direction: column;
-      gap: 5rem;
-    }
-    .about__subheading {
-      font-size: 1.8rem;
-    }
-    .about__heading {
-      font-size: 2.8rem;
-    }
-    .about__info__heading {
-      font-size: 3rem;
-    }
-  }
+const AboutStyles = styled.main`
+  padding: 16rem 0 8rem;
+  .intro { max-width: 76rem; margin: 4rem auto; font-size: 1.9rem; line-height: 1.7; }
+  .actions { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+  section { max-width: 86rem; margin: 5rem auto; }
+  h3 { font-size: 3rem; margin-bottom: 2rem; }
+  h4 { font-size: 2rem; margin-bottom: 1rem; }
+  article { border-left: 2px solid #aa8a78; padding: 1rem 0 1rem 2.5rem; margin: 2.5rem 0; }
+  p, li { font-size: 1.7rem; line-height: 1.8; }
+  .date { color: #e6c7b5; }
+  ul { list-style: disc; padding-left: 2rem; }
 `;
-
 export default function About() {
   return (
-    <>
-      <AboutPageStyles>
-        <div className="container">
-          <div className="top-section">
-            <div className="left">
-              <p className="about__subheading">
-                Hi, I am <span>Ruben Bazan</span>
-              </p>
-              <h2 className="about__heading">A full-stack Web developer</h2>
-              <div className="about__info">
-                <PText>
-                  I am a Back-End oriented Full Stack Developer. I started
-                  studying at the National Technological University in the
-                  Province of Tucumán. On the one hand I came to that world of
-                  programming looking for an important job opportunity and on
-                  the other hand then with the passage of time while I was
-                  immersed in that world of technology I came to the conclusion
-                  that I am passionate about which I am very prepared and eager
-                  to follow my path with firmness and dedication, carrying out
-                  projects and growing both personally and professionally.
-                </PText>
-              </div>
-              <Button btnText="Download CV" btnLink="#" />
-            </div>
-            <div className="right">
-              <img src={AboutImg} alt="me" />
-            </div>
-          </div>
-          <div className="about__info__items">
-            <div className="about__info__item">
-              <h1 className="about__info__heading">Education</h1>
-
-              <AboutInfoItem
-                title="School"
-                items={['Escuela Benjamin Zorrilla']}
-              />
-              <AboutInfoItem
-                title="Collage"
-                items={['Colegio Maria de la Esperanza']}
-              />
-              <AboutInfoItem
-                title="Varsity"
-                items={[
-                  'Universidad Tecnologica Nacional',
-                  'Universidad Nacional de Tucuman',
-                ]}
-              />
-            </div>
-            <div className="about__info__item">
-              <h1 className="about__info__heading">My Skills</h1>
-
-              <AboutInfoItem
-                title="Full"
-                items={[
-                  'HTML',
-                  'CSS',
-                  'JavaScript',
-                  'C#',
-                  'REACT',
-                  'Redux',
-                  'Node.js',
-                ]}
-              />
-              <AboutInfoItem
-                title="Stack"
-                items={[
-                  'Sass',
-                  'Less',
-                  'Bootstrap',
-                  'Express',
-                  'Sequilize',
-                  'SQL',
-                  'PostgreSQL',
-                  'PHP',
-                  'Git',
-                  'Github',
-                  'Postman',
-                ]}
-              />
-            </div>
-            <div className="about__info__item">
-              <h1 className="about__info__heading">Experiences</h1>
-
-              <AboutInfoItem
-                title="2021-"
-                items={['Freelance web Developer']}
-              />
-            </div>
-          </div>
-        </div>
-        <ContactBanner />
-      </AboutPageStyles>
-    </>
+    <AboutStyles><div className="container">
+      <SectionTitle subheading="Experience, skills & education" heading="My background" />
+      <div className="intro">
+        <p>I’m Ruben Bazan, a Software Developer based in Tucumán, Argentina. I focus on backend development, API integrations and automation, with experience in payment systems and personal full-stack applications.</p>
+        <p>I communicate in Spanish and English, in writing and on calls.</p>
+        <div className="actions"><Button btnText="CV · English" btnLink="/cv/Ruben_Bazan_CV_EN.pdf" download /><Button btnText="CV · Español" btnLink="/cv/Ruben_Bazan_CV_ES.pdf" download outline /></div>
+      </div>
+      <section><h3>Experience</h3>
+        <article><h4>Software Developer · Mercado Libre</h4><p className="date">July 2022 — present</p><p>Backend development with Go and Java for payment systems. API integrations, unit and integration testing, technical troubleshooting, SQL analysis and observability with logs and metrics. Automation of technical workflows and reporting.</p></article>
+        <article><h4>Programming Tutor · Coderhouse</h4><p className="date">February 2022 — December 2023</p><p>Reviewed backend programming challenges, answered student questions and provided technical feedback.</p></article>
+        <article><h4>Full-stack Developer Intern · MACHI</h4><p className="date">October — November 2021</p><p>Contributed to the frontend and backend of a collaborative e-commerce application for agricultural products.</p></article>
+      </section>
+      <section><h3>Technical skills</h3><ul>
+        <li>Backend: Go, Java, Python, Node.js, Express and REST APIs.</li>
+        <li>Frontend and personal applications: JavaScript, React, Redux and Electron.</li>
+        <li>Data: SQL, BigQuery, SQLite and NoSQL.</li>
+        <li>Quality and tooling: unit and integration testing, mocks, Git, GitHub and Postman.</li>
+        <li>Observability and automation: Datadog, Grafana, logs, metrics and AI-assisted workflows.</li>
+      </ul></section>
+      <section><h3>Education & training</h3>
+        <article><h4>Technical Degree in Programming · UTN</h4><p className="date">2020 — in progress</p></article>
+        <article><h4>Backend Java · Mercado Libre / Digital House</h4><p className="date">2022</p></article>
+        <article><h4>Full Stack Web Developer · Henry</h4><p className="date">2021</p></article>
+        <article><h4>Additional training</h4><p>Python (2024), SOLID principles and design patterns (2023), Datadog (2023), and freeCodeCamp web development courses (2021).</p></article>
+      </section>
+      <section><h3>Personal work</h3><p>My public portfolio includes personal applications and training projects. Professional source code and internal company tools remain private.</p><Button btnText="Explore projects" btnLink="/projects" /></section>
+    </div></AboutStyles>
   );
 }
