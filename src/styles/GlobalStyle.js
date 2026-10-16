@@ -30,8 +30,13 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
     object-fit: cover;
   }
-  button{
-    outline: none
+  a, button, input, summary {
+    &:focus-visible { outline: 3px solid #e6c7b5; outline-offset: 5px; }
+  }
+  a { color: inherit; }
+  button { font: inherit; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
   }
   .container {
     max-width: 1200px;
