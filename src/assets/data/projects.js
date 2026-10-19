@@ -3,6 +3,7 @@ import pagpokes from '../misIMG/pagpokes.png';
 import pagvg from '../misIMG/pagvg.png';
 import tracker from '../misIMG/tracker-illustration.svg';
 import fitapp from '../misIMG/fitapp-illustration.svg';
+import csharp from '../misIMG/csharp-projects.svg';
 
 const projects = [
   {
@@ -47,6 +48,38 @@ const projects = [
     features: [
       'Collaborative full-stack development.',
       'Product browsing and e-commerce workflows.',
+    ],
+  },
+  {
+    id: 'n-commerce',
+    name: 'N-Commerce',
+    category: 'Desktop application · Training project',
+    desc:
+      'A C# desktop application for managing products, stock, sales and business reports, backed by a SQL database.',
+    stack: 'C# · .NET Framework · Windows Forms · SQL · Entity Framework',
+    img: csharp,
+    illustration: true,
+    source: 'https://github.com/rubensauriosD/N-Commerce',
+    features: [
+      'Product, inventory and sales management.',
+      'SQL persistence with Entity Framework and repository interfaces.',
+      'Business reports built with ReportViewer.',
+    ],
+  },
+  {
+    id: 'x-commerce',
+    name: 'X-Commerce',
+    category: 'Desktop application · Training project',
+    desc:
+      'A C# desktop application for managing products, stock, customers and sales, with local text-file persistence.',
+    stack: 'C# · .NET Framework · Windows Forms · Text files',
+    img: csharp,
+    illustration: true,
+    source: 'https://github.com/rubensauriosD/X-Commerce',
+    features: [
+      'Product, customer and employee management.',
+      'Stock adjustments, invoicing and customer account workflows.',
+      'Local persistence through text files.',
     ],
   },
   {
