@@ -10,6 +10,7 @@ Personal portfolio built with React and styled-components. It presents my backgr
 - Downloadable CVs in [English](public/cv/Ruben_Bazan_CV_EN.pdf) and [Spanish](public/cv/Ruben_Bazan_CV_ES.pdf).
 - FitApp and LoL Personal Stats Tracker: local personal applications, with clearly labelled illustrations and feature summaries.
 - MACHI, VideoGames and Pokémon: earlier training projects with links to public repositories.
+- N-Commerce and X-Commerce: C# desktop training projects with links to their public repositories; SQL and text-file persistence respectively.
 - Direct email and LinkedIn contact links.
 
 Professional source code and internal company tools are private and are not included in this repository. Public demos and source repositories for the two local applications are not available yet.
