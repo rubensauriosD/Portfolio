@@ -9,7 +9,8 @@ const projects = [
     id: 'lol-tracker',
     name: 'LoL Personal Stats Tracker',
     category: 'Personal project',
-    desc: 'A local dashboard for League of Legends account, ranked and match statistics, integrating Riot Games APIs.',
+    desc:
+      'A local dashboard for League of Legends account, ranked and match statistics, integrating Riot Games APIs.',
     stack: 'Python · SQLite · REST APIs · JavaScript',
     img: tracker,
     illustration: true,
@@ -23,7 +24,8 @@ const projects = [
     id: 'fitapp',
     name: 'FitApp',
     category: 'Personal project',
-    desc: 'A personal application for workout planning, nutrition and pantry management, with local data persistence.',
+    desc:
+      'A personal application for workout planning, nutrition and pantry management, with local data persistence.',
     stack: 'JavaScript · Electron · localStorage',
     img: fitapp,
     illustration: true,
@@ -37,7 +39,8 @@ const projects = [
     id: 'machi',
     name: 'E-Commerce MACHI',
     category: 'Collaborative training project · 2021',
-    desc: 'An e-commerce application for agricultural products. I contributed to both the web storefront and the backend.',
+    desc:
+      'An e-commerce application for agricultural products. I contributed to both the web storefront and the backend.',
     stack: 'JavaScript · React · Node.js · Express',
     img: pagmachi,
     source: 'https://github.com/rubensauriosD/E-commerce-MACHI',
@@ -50,7 +53,8 @@ const projects = [
     id: 'videogames',
     name: 'VideoGames',
     category: 'Training project',
-    desc: 'A single-page application that consumes video game data through a Node.js API.',
+    desc:
+      'A single-page application that consumes video game data through a Node.js API.',
     stack: 'React · Redux · Node.js · Express',
     img: pagvg,
     source: 'https://github.com/rubensauriosD/PI-Videgames',
@@ -63,7 +67,8 @@ const projects = [
     id: 'pokemon',
     name: 'Pokémon',
     category: 'Training project',
-    desc: 'A single-page application combining Pokémon API data with a backend and database.',
+    desc:
+      'A single-page application combining Pokémon API data with a backend and database.',
     stack: 'React · Redux · Node.js · Sequelize',
     img: pagpokes,
     source: 'https://github.com/rubensauriosD/PI-Pokemon',
