@@ -46,7 +46,7 @@ export default function Projects() {
   const visible = projects.filter((project) =>
     `${project.name} ${project.stack} ${project.category}`
       .toLowerCase()
-      .includes(query.trim().toLowerCase()),
+      .includes(query.trim().toLowerCase())
   );
   return (
     <ProjectsStyles>
@@ -63,14 +63,14 @@ export default function Projects() {
         <div className="search">
           <label htmlFor="project-search">
             Search by project or technology
+            <input
+              id="project-search"
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Try Python, React or FitApp"
+            />
           </label>
-          <input
-            id="project-search"
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Try Python, React or FitApp"
-          />
         </div>
         <div className="grid">
           {visible.map((project) => (
