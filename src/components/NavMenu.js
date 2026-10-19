@@ -55,7 +55,13 @@ const NavStyles = styled.nav`
     border: 0;
     display: none;
   }
-  .closeNavIcon button { background: transparent; border: 0; color: inherit; cursor: pointer; width: 3rem; }
+  .closeNavIcon button {
+    background: transparent;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    width: 3rem;
+  }
   @media only screen and (max-width: 768px) {
     padding: 0;
     .hide-item {
@@ -108,45 +114,37 @@ export default function NavMenu() {
         <MdMenu />
       </button>
 
-      <ul id="main-navigation" className={!showNav ? 'navItems hide-item' : 'navItems'}>
-        <li className="closeNavIcon"><button
-          type="button"
-          aria-label="Close navigation"
-          className="closeNavIcon"
-          onClick={() => setShowNav(!showNav)}
-        >
-          <MdClose />
-        </button></li>
-        <li>
-          <NavLink
-            to="/"
-            exact
-            onClick={() => setShowNav(false)}
+      <ul
+        id="main-navigation"
+        className={!showNav ? 'navItems hide-item' : 'navItems'}
+      >
+        <li className="closeNavIcon">
+          <button
+            type="button"
+            aria-label="Close navigation"
+            className="closeNavIcon"
+            onClick={() => setShowNav(!showNav)}
           >
+            <MdClose />
+          </button>
+        </li>
+        <li>
+          <NavLink to="/" exact onClick={() => setShowNav(false)}>
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/about"
-            onClick={() => setShowNav(false)}
-          >
+          <NavLink to="/about" onClick={() => setShowNav(false)}>
             About
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/projects"
-            onClick={() => setShowNav(false)}
-          >
+          <NavLink to="/projects" onClick={() => setShowNav(false)}>
             Projects
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/contact"
-            onClick={() => setShowNav(false)}
-          >
+          <NavLink to="/contact" onClick={() => setShowNav(false)}>
             Contact
           </NavLink>
         </li>
