@@ -57,9 +57,9 @@ export default function Projects() {
           heading="Projects"
         />
         <p className="intro">
-          A selection of things I’ve built outside work. FitApp and LoL Personal
-          Stats Tracker currently run locally; the training projects link to
-          their public source code.
+          A selection of things I’ve built outside work. Each project links to
+          its public source code. FitApp and LoL Personal Stats Tracker run
+          locally; their repositories include setup instructions.
         </p>
         <div className="search">
           <label htmlFor="project-search">

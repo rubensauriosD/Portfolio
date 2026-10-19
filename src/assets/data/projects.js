@@ -14,6 +14,7 @@ const projects = [
       'A local dashboard for League of Legends account, ranked and match statistics, integrating Riot Games APIs.',
     stack: 'Python · SQLite · REST APIs · JavaScript',
     img: tracker,
+    source: 'https://github.com/rubensauriosD/lol-stats',
     illustration: true,
     features: [
       'Account, ranked and match data in one dashboard.',
@@ -29,6 +30,7 @@ const projects = [
       'A personal application for workout planning, nutrition and pantry management, with local data persistence.',
     stack: 'JavaScript · Electron · localStorage',
     img: fitapp,
+    source: 'https://github.com/rubensauriosD/FitApp',
     illustration: true,
     features: [
       'Workout calendar and training timer.',
