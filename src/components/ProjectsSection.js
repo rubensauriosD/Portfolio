@@ -57,11 +57,13 @@ const ProjectSectionStyle = styled.div`
 `;
 
 export default function ProjectsSection() {
-  // console.log(projects);
   return (
     <ProjectSectionStyle>
       <div className="container">
-        <SectionTitle subheading="Personal applications & training projects" heading="Projects" />
+        <SectionTitle
+          subheading="Personal applications & training projects"
+          heading="Projects"
+        />
         <div className="projects__allItems">
           <Swiper
             spaceBetween={30}
@@ -82,13 +84,20 @@ export default function ProjectsSection() {
               },
             }}
           >
-            {projects.map((project) => {
-              return (
-                <SwiperSlide key={project.id}>
-                  <ProjectItem {...project} />
-                </SwiperSlide>
-              );
-            })}
+            {projects.map((project) => (
+              <SwiperSlide key={project.id}>
+                <ProjectItem
+                  name={project.name}
+                  img={project.img}
+                  desc={project.desc}
+                  category={project.category}
+                  stack={project.stack}
+                  features={project.features}
+                  source={project.source}
+                  illustration={project.illustration}
+                />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>

@@ -32,8 +32,20 @@ export default function Button({
   return (
     <ButtonStyle outline={outline} className="button-wrapper">
       {anchor ? (
-        <a className="button" href={btnLink} download={download || undefined} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>{btnText}</a>
-      ) : <Link className="button" to={btnLink}>{btnText}</Link>}
+        <a
+          className="button"
+          href={btnLink}
+          download={download || undefined}
+          target={external ? '_blank' : undefined}
+          rel="noopener noreferrer"
+        >
+          {btnText}
+        </a>
+      ) : (
+        <Link className="button" to={btnLink}>
+          {btnText}
+        </Link>
+      )}
     </ButtonStyle>
   );
 }
