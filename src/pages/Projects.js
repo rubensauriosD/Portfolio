@@ -23,6 +23,7 @@ const ProjectsStyles = styled.main`
     margin-bottom: 1rem;
   }
   input {
+    margin-top: 1rem;
     width: 100%;
     padding: 1.5rem;
     font-size: 1.8rem;
